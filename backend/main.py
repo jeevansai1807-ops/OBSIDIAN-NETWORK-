@@ -13,15 +13,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- CONFIGURATION ---
-# 1. SET THIS TO YOUR NETWORK IP PREFIX (e.g., "192.168.1." or "192.168.29.")
-# If you leave it empty "", the script will try to guess (which often fails).
-FORCE_IP_PREFIX = "" 
+# --- ADVANCED CONFIGURATION ---
+FORCE_IP_PREFIX = ""  
 
 PORT_MAP = {
     53: "router", 80: "web", 443: "web",
     445: "windows", 135: "windows", 139: "windows",
-    62078: "mobile", 22: "linux", 21: "server", 3389: "windows"
+    62078: "mobile", 22: "linux", 21: "server", 3389: "windows",
+    554: "camera", 8554: "camera", 8000: "camera", # RTSP Streaming ports for IP Cameras
+    8080: "iot", 1883: "iot" # Common IoT and MQTT ports
 }
 
 def get_real_local_ip_base():
